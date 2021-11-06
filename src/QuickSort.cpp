@@ -5,21 +5,32 @@
 //============================================================================
 
 #include <iostream>
-
+#define TAM 10
 using namespace std;
 
 void qSort(int[], int l, int r) {
-	// Función recursiva del QuickSort
+	// Funciï¿½n recursiva del QuickSort
 	if (l >= r)
 		return;
-	//TODO: implementar la recursividad de la función
+	//TODO: implementar la recursividad de la funciï¿½n
 }
 
 void particionar() {
-	// TODO: Esta función debería regresar el índice del elemento pivot en su lugar correcto
+	// TODO: Esta funciï¿½n deberï¿½a regresar el ï¿½ndice del elemento pivot en su lugar correcto
+}
+
+void imprimirArr(int arr[]){
+	for (size_t i = 0; i < TAM; i++) {
+		cout << arr[i] << ", ";
+	}
+	cout << endl;
 }
 
 int main() {
-	int desordenado = {5, 10, 0, 9, 4, 1, 20, 13, 7, 6, 89, 123, 45, 23};
+	int desordenado[TAM] = {5, 10, 0, 9, 4, 1, 20, 13, 7, 6};
+
+	cout << "Arreglo desordenado: ";
+	imprimirArr(desordenado);
+
 	return 0;
 }
