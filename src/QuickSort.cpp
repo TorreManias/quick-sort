@@ -15,10 +15,15 @@ using namespace std;
 int particionar(int arr[], int l, int r) {
 	// TODO: Esta funciï¿½n deberï¿½a regresar el ï¿½ndice del elemento pivot en su lugar correcto
 	int pivote = 0;
+
+	// Índices para recorrer el arreglo
+	int i = l - 1;
+	int j = l;
+
 	return pivote;
 }
 
-void qSort(int arr[], int l, int r) {
+void qSort(int *arr, int l, int r) {
 	// Funciï¿½n recursiva del QuickSort
 	if (l >= r)
 		return;
