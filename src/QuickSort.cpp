@@ -5,7 +5,9 @@
 //============================================================================
 
 #include <iostream>
-#define TAM 10
+#include <stdlib.h>
+#include <time.h>
+
 using namespace std;
 
 void qSort(int[], int l, int r) {
@@ -19,18 +21,25 @@ void particionar() {
 	// TODO: Esta funci�n deber�a regresar el �ndice del elemento pivot en su lugar correcto
 }
 
-void imprimirArr(int arr[]){
-	for (size_t i = 0; i < TAM; i++) {
+void imprimirArr(int arr[], int TAM){
+	for (int i = 0; i < TAM; i++) {
 		cout << arr[i] << ", ";
 	}
 	cout << endl;
 }
 
-int main() {
-	int desordenado[TAM] = {5, 10, 0, 9, 4, 1, 20, 13, 7, 6};
+int main(int argc, char *argv[]) {
+	int TAM = atoi(argv[1]);
+	cout << TAM << endl;
+
+	// Generar el aregllo con numeros aleatorios
+	int numeros[TAM] = {0};
+	for(int i = 0; i < TAM; i++) {
+		numeros[i] = 1 + rand() % TAM;
+	}
 
 	cout << "Arreglo desordenado: ";
-	imprimirArr(desordenado);
+	imprimirArr(numeros, TAM);
 
 	return 0;
 }
