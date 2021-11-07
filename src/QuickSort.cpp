@@ -20,6 +20,16 @@ int particionar(int arr[], int l, int r) {
 	int i = l - 1;
 	int j = l;
 
+	for (j; j < r; j++) {
+		if (arr[j] <= arr[r]) {
+			// Intercambiar los números
+			i++;
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+		}
+	}
+
 	return pivote;
 }
 
