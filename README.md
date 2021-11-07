@@ -13,12 +13,18 @@ Introduce en el area de texto la cantidad de numeros a generar.
 ### Desde consola
 
 Abre src y en una terminal ejecuta el siguiente comando usando G++:
+```
 g++ QuickSort.cpp
+```
 
 #### Ejecutar en windows
 En la consola escribe:
+```
 a.exe (numero de numeros a generar)
+```
 
 #### Ejecutar en linux
 En la terminal escribe:
+```
 ./a.out (numero de numeros a generar)
+```
