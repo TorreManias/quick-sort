@@ -7,18 +7,28 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <locale.h>
+#include <ctype.h>
 
 using namespace std;
 
-void qSort(int[], int l, int r) {
+int particionar(int arr[], int l, int r) {
+	// TODO: Esta funciï¿½n deberï¿½a regresar el ï¿½ndice del elemento pivot en su lugar correcto
+	int pivote = 0;
+	return pivote;
+}
+
+void qSort(int arr[], int l, int r) {
 	// Funciï¿½n recursiva del QuickSort
 	if (l >= r)
 		return;
-	//TODO: implementar la recursividad de la funciï¿½n
-}
 
-void particionar() {
-	// TODO: Esta funciï¿½n deberï¿½a regresar el ï¿½ndice del elemento pivot en su lugar correcto
+	int indexPivote = particionar(arr, l, r);
+
+	// Ordenar a la izquierda del pivote
+	qSort(arr, 0, indexPivote - 1);
+	// Ordenar a la derecha del pivote
+	qSort(arr, indexPivote + 1, r);
 }
 
 void imprimirArr(int arr[], int TAM){
@@ -28,18 +38,42 @@ void imprimirArr(int arr[], int TAM){
 	cout << endl;
 }
 
-int main(int argc, char *argv[]) {
-	int TAM = atoi(argv[1]);
-	cout << TAM << endl;
-
-	// Generar el aregllo con numeros aleatorios
-	int numeros[TAM] = {0};
+void generarNumerosAleatorios(int *arr, int TAM) {
+	// Cargar el arreglo con numeros aleatorios
 	for(int i = 0; i < TAM; i++) {
-		numeros[i] = 1 + rand() % TAM;
+		arr[i] = 1 + rand() % TAM;
 	}
+}
 
-	cout << "Arreglo desordenado: ";
-	imprimirArr(numeros, TAM);
+int main(int argc, char *argv[]) {
 
+	setlocale(LC_ALL, "spanish");
+
+	switch(argc){
+		case 2: {
+
+			if (isdigit(atoi(argv[1]))) {
+				int TAM = atoi(argv[1]);
+				cout << "Tamaño del arreglo: " << TAM << endl;
+
+				int numeros[TAM] = {0};
+				generarNumerosAleatorios(numeros, TAM);
+
+				cout << "Arreglo desordenado: ";
+				imprimirArr(numeros, TAM);
+			} else {
+				cout << "Argumento inválido" << endl;
+			}
+
+		}
+
+			break;
+
+		default:
+			cout << endl << "Número inválido de argumentos. Intente de nuevo con el siguiente formato:" << endl;
+			cout << "\t" << "a.exe [cantidad_aleatorios_generar]" << endl;
+			break;
+	}
+	system("pause");
 	return 0;
 }
