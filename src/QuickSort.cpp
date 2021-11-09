@@ -64,16 +64,14 @@ void generarNumerosAleatorios(int *arr, int TAM) {
 
 int main(int argc, char *argv[]) {
 
-	clock_t inicio, fin, total;
+	float inicio, fin, total;
 
 	setlocale(LC_ALL, "spanish");
 
 	switch(argc){
 		case 2: {
-
-			//if (isdigit(atoi(argv[1]))) {
 				int TAM = atoi(argv[1]);
-				cout << "Tama�o del arreglo: " << TAM << endl;
+				cout << "Size del arreglo: " << TAM << endl;
 
 				
 				int numeros[TAM] = {0};
@@ -84,14 +82,12 @@ int main(int argc, char *argv[]) {
 				inicio = clock();
 				qSort(numeros, 0, TAM - 1);
 				fin = clock();
+
 				imprimirArr(numeros, TAM);
-				total = (double)((fin - inicio) / CLOCKS_PER_SEC);
+
+				total = (double)(fin - inicio) / CLOCKS_PER_SEC;
+
 				printf("\nTiempo total de ordenamiento de %d n�meros: %f\n", TAM, total);
-
-			/*} else {
-				cout << "Argumento inv�lido" << endl;
-			} */
-
 		}
 
 			break;
