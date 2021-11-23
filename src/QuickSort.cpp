@@ -27,14 +27,11 @@ void intercambiar(int *a, int *b) {
 }
 
 int particionar(int arr[], int l, int r) {
-	// TODO: Esta funci�n deber�a regresar el �ndice del elemento pivot en su lugar correcto
 	int pivote = arr[r];
 
-	// �ndices para recorrer el arreglo
 	int i = l - 1;
 	for (int j = l; j <= (r - 1); j++) {
 		if (arr[j] < pivote) {
-			// Intercambiar los n�meros
 			i++;
 			intercambiar(&arr[i], &arr[j]);
 		}
@@ -44,7 +41,6 @@ int particionar(int arr[], int l, int r) {
 }
 
 void qSort(int arr[], int l, int r) {
-	// Funci�n recursiva del QuickSort
 	if (l < r) {
 		int indexPivote = particionar(arr, l, r);
 
@@ -56,6 +52,7 @@ void qSort(int arr[], int l, int r) {
 }
 
 void generarNumerosAleatorios(int *arr, int TAM) {
+	srand(time(NULL));
 	// Cargar el arreglo con numeros aleatorios
 	for(int i = 0; i < TAM; i++) {
 		arr[i] = 1 + rand() % TAM;
@@ -77,13 +74,13 @@ int main(int argc, char *argv[]) {
 				int numeros[TAM] = {0};
 				generarNumerosAleatorios(numeros, TAM);
 
-				imprimirArr(numeros, TAM);
+				//imprimirArr(numeros, TAM);
 
 				inicio = clock();
 				qSort(numeros, 0, TAM - 1);
 				fin = clock();
 
-				imprimirArr(numeros, TAM);
+				//imprimirArr(numeros, TAM);
 
 				total = (double)(fin - inicio) / CLOCKS_PER_SEC;
 
