@@ -81,6 +81,8 @@ int main(int argc, char *argv[]) {
 				qSort(numeros, 0, TAM - 1);
 				fin = clock();
 
+				free(numeros);
+
 				//imprimirArr(numeros, TAM);
 
 				total = (double)(fin - inicio) / CLOCKS_PER_SEC;
