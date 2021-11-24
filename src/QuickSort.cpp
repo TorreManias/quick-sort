@@ -10,24 +10,25 @@
 #include <locale.h>
 #include <ctype.h>
 #include <stdio.h>
+#define ulli unsigned long long int
 
 using namespace std;
 
-void imprimirArr(int arr[], int TAM){
+void imprimirArr(ulli arr[], int TAM){
 	for (int i = 0; i < TAM; i++) {
 		cout << arr[i] << ", ";
 	}
 	cout << endl;
 }
 
-void intercambiar(int *a, int *b) {
-	int temp = *a;
+void intercambiar(ulli *a, ulli *b) {
+	ulli temp = *a;
 	*a = *b;
 	*b = temp;
 }
 
-int particionar(int arr[], int l, int r) {
-	int pivote = arr[r];
+int particionar(ulli arr[], int l, int r) {
+	ulli pivote = arr[r];
 
 	int i = l - 1;
 	for (int j = l; j <= (r - 1); j++) {
@@ -40,7 +41,7 @@ int particionar(int arr[], int l, int r) {
 	return i + 1;
 }
 
-void qSort(int arr[], int l, int r) {
+void qSort(ulli arr[], int l, int r) {
 	if (l < r) {
 		int indexPivote = particionar(arr, l, r);
 
@@ -51,7 +52,7 @@ void qSort(int arr[], int l, int r) {
 	}
 }
 
-void generarNumerosAleatorios(int *arr, int TAM) {
+void generarNumerosAleatorios(ulli *arr, int TAM) {
 	srand(time(NULL));
 	// Cargar el arreglo con numeros aleatorios
 	for(int i = 0; i < TAM; i++) {
@@ -71,7 +72,7 @@ int main(int argc, char *argv[]) {
 				cout << "Size del arreglo: " << TAM << endl;
 
 				
-				int numeros[TAM] = {0};
+				ulli* numeros = new ulli[TAM];
 				generarNumerosAleatorios(numeros, TAM);
 
 				//imprimirArr(numeros, TAM);
@@ -84,13 +85,13 @@ int main(int argc, char *argv[]) {
 
 				total = (double)(fin - inicio) / CLOCKS_PER_SEC;
 
-				printf("\nTiempo total de ordenamiento de %d n�meros: %f\n", TAM, total);
+				printf("\nTiempo total de ordenamiento de %d números: %f\n", TAM, total);
 		}
 
 			break;
 
 		default:
-			cout << endl << "N�mero inv�lido de argumentos. Intente de nuevo con el siguiente formato:" << endl;
+			cout << endl << "Número inválido de argumentos. Intente de nuevo con el siguiente formato:" << endl;
 			cout << "\t" << "a.exe [cantidad_aleatorios_generar]" << endl;
 			break;
 	}
